@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TASK MANAGER</title>
+  <link rel="stylesheet" href="home.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+  <nav>
+    <div class="nav-part">
+      <h1 class="logo">TASK MANAGER</h1>
+    </div>
+    <div class="dark-mode">
+            <svg  viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+              <title>dark-mode</title>
+              <g id="Layer_2" data-name="Layer 2">
+                <g id="Icons">
+                  <g>
+                    <rect width="48" height="48" fill="none"/>
+                    <g>
+                      <path d="M14,24A10,10,0,0,0,24,34V14A10,10,0,0,0,14,24Z"/>
+                      <path d="M24,2A22,22,0,1,0,46,24,21.9,21.9,0,0,0,24,2ZM6,24A18.1,18.1,0,0,1,24,6v8a10,10,0,0,1,0,20v8A18.1,18.1,0,0,1,6,24Z"/>
+                    </g>
+                  </g>
+                </g>
+              </g>
+            </svg>
+    </div>
+  </nav>
+  <header class="input-part">
+      <div class="input-div">
+        <h2>Add New Task</h2>
+        <input class="title"type="text" placeholder="Title">
+        <div class="date-priority">
+          <input class="date"type="date">
+          <select class="priority" id="priority" name="priority">
+            <option value="" disabled selected hidden >Priority</option>
+            <option value="high">High</option>
+            <option value="medium">Medium</option>
+            <option value="low">Low</option>
+          </select>
+        </div>
+        <div class="search-container">
+          <input class="search" type="search" placeholder=" Search">
+          <button class="add">Add</button>
+        </div>
+      </div>
+  </header>
+  <section class="output-part">
+    <div class="output-div">
+      <h1>TASK LIST</h1>
+        <div class="task">
+           <div class="task-type">
+              <div class="task-left">
+                  <input class="checkbox" type="checkbox">
+                  <p class="task-head">Buy groceries</p>
+               </div>
+              <p class="date-head">14 jun</p>
+           </div>
+           <div class="task-feature">
+              <p class="task-prio">Priority : High</p>
+              <p class="date-prio">14 jun</p>
+           </div>
+        </div>
+        <div class="task">
+           <div class="task-type">
+              <div class="task-left">
+                  <input class="checkbox" type="checkbox">
+                  <p class="task-head">football play</p>
+               </div>
+              <p class="date-head">14 jun</p>
+           </div>
+           <div class="task-feature">
+              <p class="task-prio">Priority : Low</p>
+              <p class="date-prio">14 jun</p>
+           </div>
+        </div>
+        <div class="task">
+           <div class="task-type">
+              <div class="task-left">
+                  <input class="checkbox" type="checkbox">
+                  <p class="task-head">study</p>
+               </div>
+              <p class="date-head">14 jun</p>
+           </div>
+           <div class="task-feature">
+              <p class="task-prio">Priority : High</p>
+              <p class="date-prio">14 jun</p>
+           </div>
+        </div>
+    </div>
+  </section>
+</body>
+</html>
