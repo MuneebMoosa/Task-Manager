@@ -19,6 +19,13 @@ document.querySelector('.add').addEventListener('click' , () => {
   const date = document.querySelector('.date').value;
   const priority = document.querySelector('.priority').value;
 
+  if(!title || !date || !priority){
+    document.querySelector('.title').value = '';
+    document.querySelector('.date').value = '';
+    document.querySelector('.priority').value = '';
+    alert('please fill all input properly');
+    return
+  }
 const now = new Date();
 const time = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit'});
 

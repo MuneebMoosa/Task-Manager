@@ -24,7 +24,7 @@ export function displayTask(input) {
       </div>
     `;
  container.appendChild(taskDiv); // Add task to .task-list
- 
+
     // Add long-press to delete
     let holdTimer;
    
