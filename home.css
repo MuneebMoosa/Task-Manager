@@ -5,8 +5,7 @@
   box-sizing: border-box;
 }
 html, body {
-  height: 100%;
-  min-height: 600px;
+  min-height: 100%;
   background-color: var(--color-bg);
   color: var(--color-text);
 }
@@ -141,7 +140,7 @@ nav .dark-mode svg{
   align-items: center;
   margin-top: 25px;
   width: 100%;
-  margin-bottom: 50px;
+  padding-bottom: 50px;
 }
 .output-div{
   width: calc(100% - 600px);
@@ -151,6 +150,9 @@ nav .dark-mode svg{
   font-family: var(--font-main);
   font-size: 30px;
   margin: 10px 0px;
+}
+.task-list{
+  background-color: var(--color-bg);
 }
 .task{
   width: 100%;
