@@ -4,8 +4,30 @@ export function displayTask(input) {
 
   const container = document.querySelector('.task-list');
   container.innerHTML = ''; // Clear previous tasks
+  
+    // prority start
+    const priorityOrder = 
+    {
+        high: 0,
+        medium: 1,
+        low: 2
+      };
 
-  for (let i = 0; i < input.length; i++) {
+    input.sort((a , b) => {
+      // check if which has greater priority
+          if (priorityOrder[a.priority] !== priorityOrder[b.priority]) {
+               return priorityOrder[a.priority] - priorityOrder[b.priority];
+            }
+      // if priority is same check which date is newest
+           if (a.date !== b.date) {
+              return new Date(a.date) - new Date(b.date);
+            }
+      // if date also same comapre the entered time 
+            return new Date("1970-01-01T" + a.time) - new Date("1970-01-01T" + b.time);
+    })
+
+
+for (let i = 0; i < input.length; i++) {
     const task = input[i];
 
     const taskDiv = document.createElement('div');
