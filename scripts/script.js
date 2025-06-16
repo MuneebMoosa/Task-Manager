@@ -40,7 +40,8 @@ const time = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', se
   document.querySelector('.title').value = '';
   document.querySelector('.date').value = '';
   document.querySelector('.priority').value = '';
-  
+
+  displayTask(input);
 });
 
 
