@@ -52,16 +52,19 @@ const time = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', se
 });
 
 
-//   searching start
-// document.querySelector('.search').addEventListener('input', function () {
-//   const searchValue = this.value.toLowerCase(); // convert to lowercase for case-insensitive match
+  // searching start
 
-//   const filteredTasks = input.filter(task => {
-//     return task.heading.toLowerCase().includes(searchValue) || 
-//            task.priority.toLowerCase().includes(searchValue) || 
-//            task.date.includes(searchValue); // you can match any field
-//   });
+document.querySelector('.search').addEventListener('input', function () {
+  const searchValue = this.value.toLowerCase(); // convert to lowercase for case-insensitive match
 
-//   displayTask(filteredTasks); // re-render with filtered tasks
-// });
+  const filteredTasks = input
+  .map((task, index) => ({ ...task, originalIndex: index }))
+  .filter(task => {
+    return task.heading.toLowerCase().includes(searchValue) || 
+           task.priority.toLowerCase().includes(searchValue) || 
+           task.date.includes(searchValue); // you can match any field
+  });
+
+   displayTask(filteredTasks, true, input); // re-render with filtered tasks
+});
 

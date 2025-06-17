@@ -1,6 +1,6 @@
 
 
-export function displayTask(input) {
+export function displayTask(input, isSearch = false,  originalArray = input) {
 
   const container = document.querySelector('.task-list');
   container.innerHTML = ''; // Clear previous tasks
@@ -22,7 +22,7 @@ export function displayTask(input) {
            if (a.date !== b.date) {
               return new Date(a.date) - new Date(b.date);
             }
-      // if date also same comapre the entered time 
+      // if date also same compare the entered time 
             return new Date("1970-01-01T" + a.time) - new Date("1970-01-01T" + b.time);
     })
 
@@ -30,8 +30,12 @@ export function displayTask(input) {
 for (let i = 0; i < input.length; i++) {
 
   const task = input[i];
-
+  
     const taskDiv = document.createElement('div');
+
+    const actualIndex = isSearch ? task.originalIndex : i;
+    taskDiv.setAttribute('data-index', actualIndex);
+
     taskDiv.classList.add('task');
     taskDiv.innerHTML = `
       <div class="task-type">
@@ -56,9 +60,9 @@ for (let i = 0; i < input.length; i++) {
     }
 
     checkbox.addEventListener('change', () => {
-      task.completed = checkbox.checked;
+      originalArray[actualIndex].completed = checkbox.checked;
       taskDiv.style.border = checkbox.checked ? '2px solid red' : '';
-      localStorage.setItem('tasks', JSON.stringify(input));
+      localStorage.setItem('tasks', JSON.stringify(originalArray));
     });
 
     // Add long-press to delete
@@ -68,10 +72,10 @@ for (let i = 0; i < input.length; i++) {
           holdTimer = setTimeout(() => {
             const confirmDelete = confirm(`Delete task: "${task.heading}"?`);
             if (confirmDelete) {
-              input.splice(i, 1);
-              localStorage.setItem('tasks', JSON.stringify(input));
-              // document.querySelector('.search').value = ''; // if deleted after insearch tab to ake search tab cleared
-              displayTask(input); // Re-render the list
+              originalArray.splice(actualIndex, 1);
+              localStorage.setItem('tasks', JSON.stringify(originalArray));
+              document.querySelector('.search').value = ''; // if deleted after insearch tab to ake search tab cleared
+              displayTask(originalArray); // Re-render the list
             }else {
               taskDiv.style.border = '';
             }
