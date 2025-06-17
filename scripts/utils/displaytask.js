@@ -28,7 +28,8 @@ export function displayTask(input) {
 
 
 for (let i = 0; i < input.length; i++) {
-    const task = input[i];
+
+  const task = input[i];
 
     const taskDiv = document.createElement('div');
     taskDiv.classList.add('task');
@@ -47,16 +48,29 @@ for (let i = 0; i < input.length; i++) {
     `;
  container.appendChild(taskDiv); // Add task to .task-list
 
+  const checkbox = taskDiv.querySelector('.checkbox');
+
+   if (task.completed) {
+      checkbox.checked = true;
+      taskDiv.style.border = '2px solid red';
+    }
+
+    checkbox.addEventListener('change', () => {
+      task.completed = checkbox.checked;
+      taskDiv.style.border = checkbox.checked ? '2px solid red' : '';
+      localStorage.setItem('tasks', JSON.stringify(input));
+    });
+
     // Add long-press to delete
     let holdTimer;
    
     taskDiv.addEventListener('mousedown', () => {
-       taskDiv.style.border = '2px solid red'
           holdTimer = setTimeout(() => {
             const confirmDelete = confirm(`Delete task: "${task.heading}"?`);
             if (confirmDelete) {
               input.splice(i, 1);
               localStorage.setItem('tasks', JSON.stringify(input));
+              // document.querySelector('.search').value = ''; // if deleted after insearch tab to ake search tab cleared
               displayTask(input); // Re-render the list
             }else {
               taskDiv.style.border = '';
@@ -67,6 +81,7 @@ for (let i = 0; i < input.length; i++) {
     taskDiv.addEventListener('mouseup', () => clearTimeout(holdTimer));
     taskDiv.addEventListener('mouseleave', () => clearTimeout(holdTimer));
 
-   
+    
   }
 }
+
