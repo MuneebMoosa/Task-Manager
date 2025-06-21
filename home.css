@@ -172,10 +172,13 @@ input::placeholder{
   border-radius: 4px;
   margin-top: 10px;
   background-color: var(--color-completed-bg);
+  overflow: hidden;
 }
 .task .task-left{
   display: flex;
   align-items: center;
+  flex: 1;
+  min-width: 0;
 }
 .task .task-type{
   display: flex;
@@ -187,12 +190,23 @@ input::placeholder{
   height: 20px;
   margin-right: 20px;
 }
-
-.task-type .task-head,
+.task-type .task-head{
+  flex: 1;
+  white-space: wrap;   
+  overflow: hidden;          
+  text-overflow: ellipsis; 
+  min-width: 0;
+  max-width: 100%;          
+  font-size: 16px;
+  color: var(--color-text-primary);
+  font-size: 20px;
+  font-family: var(--font-main);
+}
 .task-type .date-head{
   color: var(--color-text-primary);
   font-size: 20px;
   font-family: var(--font-main);
+  flex-shrink: 0;
 }
 .task .task-feature{
   font-family: var(--font-main);
@@ -205,6 +219,188 @@ input::placeholder{
   margin-left: 40px;
 }
 
-@media screen and (max-width: 1085px){
+@media screen and (max-width: 1285px){
+  .input-div{
+    width: calc(100% - 400px);
+  }
+  /* output part */
+  .output-div{
+    width: calc(100% - 400px);
+  }
 
+}
+@media screen and (max-width: 1090px){
+ /* nav start */
+  nav .logo{
+    font-size: 25px;
+  }
+  nav .dark-mode svg{
+    width: 37px;
+    height: 37px;
+  }
+  /* input */
+  .input-div{
+    width: calc(100% - 300px);
+  }
+
+  .input-div h2{
+    font-size: 20px;
+  }
+  .input-div .title{
+    font-size: 14px;
+  }
+  .date{
+    font-size: 14px;
+  }
+  .priority{
+    font-size: 14px;
+  }
+  .search{
+    font-size: 14px;
+  }
+  .add{
+   font-size: 14px;
+  }
+  /* output part  */
+  .output-div{
+    width: calc(100% - 300px);
+  }
+ 
+
+}
+@media screen and (max-width: 830px){
+  /* nav start */
+  nav .logo{
+    font-size: 23px;
+    margin-left: 70px;
+  }
+  nav .dark-mode svg{
+     margin-right: 70px;
+    width: 34px;
+    height: 34px;
+  }
+
+  /* input start */
+  .input-div{
+    width: calc(100% - 200px);
+  }
+ 
+   .input-div h2{
+    font-size: 18px;
+  }
+   .input-div .title{
+    font-size: 12px;
+  }
+  .date{
+    font-size: 12px;
+  }
+  .priority{
+    font-size: 12px;
+  }
+  .search{
+    font-size: 12px;
+  }
+  .add{
+   font-size: 12px;
+  }
+  .output-div{
+    width: calc(100% - 200px);
+  }
+  .output-div h1{
+    font-size: 18px;
+  }
+  .task-type .task-head,
+  .task-type .date-head{
+    font-size: 15px;
+  }
+  .task .task-feature{
+     font-size: 13px;
+  }
+}
+@media screen and (max-width: 580px){
+   nav .logo{
+    font-size: 20px;
+    margin-left: 40px;
+  }
+  nav .dark-mode svg{
+     margin-right: 40px;
+    width: 30px;
+    height: 30px;
+  }
+
+  /* input start */
+  .input-div{
+    width: calc(100% - 150px);
+  }
+ 
+   .input-div h2{
+    font-size: 18px;
+  }
+   .input-div .title{
+    font-size: 12px;
+  }
+  .date{
+    font-size: 12px;
+  }
+  .priority{
+    font-size: 12px;
+  }
+  .search{
+    font-size: 12px;
+  }
+  .add{
+   font-size: 12px;
+  }
+  .output-div{
+    width: calc(100% - 150px);
+  }
+  .output-div h1{
+    font-size: 18px;
+  }
+  .task-type .checkbox{
+  width: 15px;
+  height: 15px;
+  margin-right: 5px;
+  }
+  .task-type .task-head,
+  .task-type .date-head{
+    font-size: 14px;
+  }
+  .task .task-feature{
+     font-size: 12px;
+  }
+  .task-feature .task-prio{
+    margin-left: 20px;
+  }
+}
+@media screen and (max-width: 430px){
+   nav .logo{
+    font-size: 20px;
+    margin-left: 10px;
+  }
+  nav .dark-mode svg{
+    margin-right: 10px;
+    width: 30px;
+    height: 30px;
+  }
+  /* input start */
+  .input-div{
+    width: calc(100% - 100px);
+  }
+  .date{
+    font-size: 12px;
+  }
+  .add{
+    font-size: 10px;
+  }
+  .output-div{
+    width: calc(100% - 100px);
+  }
+  .task-type .task-head,
+  .task-type .date-head{
+    font-size: 15px;
+  }
+  .task-feature .task-prio{
+    margin-left: 0px;
+  }
 }
