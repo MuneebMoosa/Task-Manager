@@ -21,20 +21,20 @@ input[type="checkbox"] {
   --color-text-secondary: #666666;
   --color-accent: #1E88E5;
   --color-border: #cccccc;
-  --color-completed-bg: #E8F5E9;
+  --color-completed-bg: #fcf9f9;
   --color-button-text: #ffffff;
 
   /* Fonts */
   --font-main: 'Poppins', 'Inter', sans-serif;
 }
 .dark-mode-colors{
-  --color-bg: #121212;
+  --color-bg: #0d1117;
   --color-text-primary: #f0f0f0;
   --color-text-secondary: #bbbbbb;
-  --color-accent: #90CAF9;
+  --color-accent: #499bdf;
   --color-border: #f3eeee;
-  --color-completed-bg: #1e2b1e;
-  --color-button-text: #121212;
+  --color-completed-bg:  #161b22;
+  --color-button-text: #ffffff;
 }
 .dark-icon path {
   fill: var(--color-text-primary); 
@@ -60,6 +60,7 @@ nav .dark-mode svg{
   height: 40px;
   cursor: pointer;
 }
+
 .input-part{
   display: flex;
   justify-content: center;
@@ -78,6 +79,13 @@ nav .dark-mode svg{
   font-family: var(--font-main);
   font-size: 25px;
 }
+input{
+ background-color: var(--color-completed-bg);
+ color: var(--color-text-primary);
+}
+input::placeholder{
+  color: var(--color-text-primary);
+}
 .input-div .title{
   width: 100% ;
   height: 30px;
@@ -87,6 +95,7 @@ nav .dark-mode svg{
   font-size: 17px;
   margin-top: 15px;
   letter-spacing: 1.5px;
+  
 }
 .date-priority{
   display: flex;
@@ -109,6 +118,8 @@ nav .dark-mode svg{
   border-radius: 4px;
   height: 30px;
   font-size: 17px;
+  background-color: var(--color-completed-bg);
+  color: var(--color-text-primary);
 }
 .search-container{
   display: flex;
@@ -160,6 +171,7 @@ nav .dark-mode svg{
   border: 2px solid var(--color-border);
   border-radius: 4px;
   margin-top: 10px;
+  background-color: var(--color-completed-bg);
 }
 .task .task-left{
   display: flex;
@@ -191,4 +203,8 @@ nav .dark-mode svg{
 }
 .task-feature .task-prio{
   margin-left: 40px;
+}
+
+@media screen and (max-width: 1085px){
+
 }
