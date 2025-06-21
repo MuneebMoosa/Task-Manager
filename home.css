@@ -192,7 +192,7 @@ input::placeholder{
 }
 .task-type .task-head{
   flex: 1;
-  white-space: wrap;   
+  white-space: wrap;     
   overflow: hidden;          
   text-overflow: ellipsis; 
   min-width: 0;

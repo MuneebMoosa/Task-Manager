@@ -1,4 +1,4 @@
-
+import { deleteHolders } from "./deleteTask.js";
 
 export function displayTask(input, isSearch = false,  originalArray = input) {
 
@@ -65,27 +65,21 @@ for (let i = 0; i < input.length; i++) {
       localStorage.setItem('tasks', JSON.stringify(originalArray));
     });
 
-    // Add long-press to delete
-    let holdTimer;
-   
-    taskDiv.addEventListener('mousedown', () => {
-          holdTimer = setTimeout(() => {
-            const confirmDelete = confirm(`Delete task: "${task.heading}"?`);
-            if (confirmDelete) {
-              originalArray.splice(actualIndex, 1);
-              localStorage.setItem('tasks', JSON.stringify(originalArray));
-              document.querySelector('.search').value = ''; // if deleted after insearch tab to ake search tab cleared
-              displayTask(originalArray); // Re-render the list
-            }else {
-              taskDiv.style.border = '';
-            }
-          }, 1000); // 1 second hold
-        });
-
-    taskDiv.addEventListener('mouseup', () => clearTimeout(holdTimer));
-    taskDiv.addEventListener('mouseleave', () => clearTimeout(holdTimer));
-
     
-  }
+    //  delete start
+
+    const {setTimer , clearTimer } = deleteHolders(task, actualIndex, originalArray, taskDiv);
+    
+    // Touch on laptop
+    taskDiv.addEventListener('mousedown', setTimer);
+    taskDiv.addEventListener('mouseup', clearTimer);
+    taskDiv.addEventListener('mouseleave', clearTimer);
+
+    // Touch on mobile
+    taskDiv.addEventListener('touchstart', setTimer);
+    taskDiv.addEventListener('touchend', clearTimer);
+    taskDiv.addEventListener('touchmove', clearTimer);
+        
+    }
 }
 
